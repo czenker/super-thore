@@ -24,7 +24,7 @@ var player = new Mario.Player([0,0]);
 canvas.width = 762;
 canvas.height = 720;
 ctx.scale(3,3);
-document.getElementById("game").appendChild(canvas);
+document.body.appendChild(canvas);
 
 //viewport
 var vX = 0,
