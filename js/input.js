@@ -39,6 +39,26 @@
         pressedKeys = {};
     });
 
+    ["left", "right", "up", "down", "run", "jump"].forEach((button) => {
+        const command=button.toUpperCase();
+        document.getElementById(button).addEventListener("mousedown", (event) => {
+            pressedKeys[command] = true;
+            event.preventDefault();
+        });
+        document.getElementById(button).addEventListener("mouseup", (event) => {
+            pressedKeys[command] = false;
+            event.preventDefault();
+        });
+        document.getElementById(button).addEventListener("touchstart", (event) => {
+            pressedKeys[command] = true;
+            event.preventDefault();
+        });
+        document.getElementById(button).addEventListener("touchend", (event) => {
+            pressedKeys[command] = false;
+            event.preventDefault();
+        });
+    })
+
     window.input = {
         isDown: function(key) {
             return pressedKeys[key.toUpperCase()];
@@ -49,6 +69,7 @@
           pressedKeys['RIGHT'] = false;
           pressedKeys['DOWN'] = false;
           pressedKeys['JUMP'] = false;
+          pressedKeys['RUN'] = false;
         }
     };
 })();

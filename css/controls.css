@@ -1,0 +1,28 @@
+/* Proudly taken from https://codepen.io/brundolf/pen/beagbQ */
+
+.controls {
+    display:flex;
+    justify-content:space-between;
+    
+    .dpad {
+    position:relative;
+    display:inline-block;
+    
+    .a-b {
+    position:relative;
+    display:inline-block;
+    }
+}
+
+.fa-caret-right:before {
+    content: "▶";
+}
+.fa-caret-up:before {
+    content: "▲";
+}
+.fa-caret-left:before {
+    content: "◀";
+}
+.fa-caret-down:before {
+    content: "▼";
+}
