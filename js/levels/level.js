@@ -40,6 +40,7 @@
     this.hillSprites = options.hillSprites;
     this.bushSprite = options.bushSprite;
     this.bushSprites = options.bushSprites;
+    this.castleSprites = options.castleSprites;
     this.qblockSprite = options.qblockSprite;
 
     this.invincibility = options.invincibility;
@@ -214,5 +215,14 @@
     }
     this.scenery[2][x] = new Mario.Prop([16*x, 32], this.flagpoleSprites[0]);
     this.items.push(new Mario.Flag(16*x));
+    // "castle"
+    for(let dy=0;dy<5;dy++) {
+      for(let dx=0;dx<5;dx++) {
+        let i = dy*5+dx;
+        let pos_x = x+4+dx;
+        let pos_y = 12-dy;
+        this.scenery[pos_y][pos_x] = new Mario.Prop([16*pos_x, 16*pos_y], this.castleSprites[i]);
+      }
+    }
   }
 })();

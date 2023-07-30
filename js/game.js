@@ -38,6 +38,7 @@ resources.load([
   'sprites/enemy.png',
   'sprites/tiles.png',
   'sprites/playerl.png',
+  'sprites/castle.png',
   'sprites/items.png',
   'sprites/enemyr.png',
 ]);

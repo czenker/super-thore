@@ -51,18 +51,46 @@ var oneone = Mario.oneone = function() {
     bushSprites: [
      new Mario.Sprite('sprites/tiles.png', [176,144], [16,16],0),
      new Mario.Sprite('sprites/tiles.png', [192,144], [16,16],0),
-     new Mario.Sprite('sprites/tiles.png', [208,144], [16,16],0)],
-   goombaSprite: function() {
-     return new Mario.Sprite('sprites/enemy.png', [0, 16], [16,16], 3, [0,1]);
-   },
-   koopaSprite: function() {
-     return new Mario.Sprite('sprites/enemy.png', [96,0], [16,32], 2, [0,1]);
-   },
-   flagPoleSprites: [
-     new Mario.Sprite('sprites/tiles.png', [256, 128], [16,16], 0),
-     new Mario.Sprite('sprites/tiles.png', [256, 144], [16,16], 0),
-     new Mario.Sprite('sprites/items.png', [128, 32], [16,16], 0)
-   ]
+     new Mario.Sprite('sprites/tiles.png', [208,144], [16,16],0)
+    ],
+    castleSprites: [
+      new Mario.Sprite('sprites/castle.png', [0,64], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [16,64], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [32,64], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [48,64], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [64,64], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [0,48], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [16,48], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [32,48], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [48,48], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [64,48], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [0,32], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [16,32], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [32,32], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [48,32], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [64,32], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [0,16], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [16,16], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [32,16], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [48,16], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [64,16], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [0,0], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [16,0], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [32,0], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [48,0], [16,16],0),
+      new Mario.Sprite('sprites/castle.png', [64,0], [16,16],0)
+    ],
+    goombaSprite: function() {
+      return new Mario.Sprite('sprites/enemy.png', [0, 16], [16,16], 3, [0,1]);
+    },
+    koopaSprite: function() {
+      return new Mario.Sprite('sprites/enemy.png', [96,0], [16,32], 2, [0,1]);
+    },
+    flagPoleSprites: [
+      new Mario.Sprite('sprites/tiles.png', [256, 128], [16,16], 0),
+      new Mario.Sprite('sprites/tiles.png', [256, 144], [16,16], 0),
+      new Mario.Sprite('sprites/items.png', [128, 32], [16,16], 0)
+    ]
  });
   ground = [[0,69],[71,86],[89,153],[155,212]];
   player.pos[0] = level.playerPos[0];
