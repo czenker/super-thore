@@ -17,6 +17,7 @@
 		this.runheld = false;
 		this.noInput = false;
 		this.targetPos = [];
+		this.gameFinishedTimeout;
 
 		Mario.Entity.call(this, {
 			pos: pos,
@@ -280,14 +281,17 @@
 			if (this.pos[0] >= this.targetPos[0]) {
 				this.sprite.size = [0,0];
 				this.vel = [0,0];
-				window.setTimeout(function() {
-					player.sprite.size = player.power===0 ? [16,16] : [16,32];
-					player.exiting = false;
-					player.noInput = false;
-					level.loader();
-					if (player.power !== 0) player.pos[1] -= 16;
-					music.overworld.currentTime = 0;
-				}, 5000);
+				if (!this.gameFinishedTimeout) {
+					this.gameFinishedTimeout = window.setTimeout(function() {
+						player.sprite.size = player.power===0 ? [16,16] : [16,32];
+						player.exiting = false;
+						player.noInput = false;
+						player.gameFinishedTimeout=undefined;
+						level.loader();
+						if (player.power !== 0) player.pos[1] -= 16;
+						music.overworld.currentTime = 0;
+					}, 5000);
+				}
 			}
 		}
 

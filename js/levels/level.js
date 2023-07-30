@@ -44,6 +44,8 @@
     this.qblockSprite = options.qblockSprite;
 
     this.invincibility = options.invincibility;
+    this.start = options.start;
+    this.isStarted = false;
     this.statics = [];
     this.scenery = [];
     this.blocks = [];
@@ -223,6 +225,14 @@
         let pos_y = 12-dy;
         this.scenery[pos_y][pos_x] = new Mario.Prop([16*pos_x, 16*pos_y], this.castleSprites[i]);
       }
+    }
+  }
+
+  Level.prototype.start = function() {
+    if (this.isStarted) { return; }
+    this.isStarted = true;
+    if (this.start) {
+      this.start();
     }
   }
 })();
