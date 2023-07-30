@@ -244,5 +244,16 @@ var oneone = Mario.oneone = function() {
 
   music.underground.pause();
   // music.overworld.currentTime = 0;
-  music.overworld.play();
+
+  // problem: browsers need user interaction to start playing music
+  // i am lazy and don't want to add a "Start" button, so we just try until it works.
+  let didWeStartTheMusicInterval;
+  didWeStartTheMusicInterval = setInterval(() => {
+    console.log("Try start music");
+    music.overworld.play().then(() => {
+      console.log("Music started");
+      clearInterval(didWeStartTheMusicInterval);
+    }).catch(()=> {});
+  }, 1000);
+  
 };
