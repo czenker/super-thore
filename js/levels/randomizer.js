@@ -1,7 +1,8 @@
 var levelrandomizer = Mario.randomizer = function() {
   level = new Mario.Level({
     playerPos: [56,192],
-    loader: Mario.randomizer,
+    stageClearedLoader: Mario.randomizer,
+    stageFailedLoader: Mario.randomizer,
     background: "#7974FF",
     scrolling: true,
     invincibility: [144, 192, 240],

@@ -250,7 +250,7 @@
 			this.dying -= 1 * dt;
 			if (this.dying <= 0) {
 				player = new Mario.Player(level.playerPos);
-				level.loader.call();
+				level.stageFailedLoader.call();
 				input.reset();
 			}
 		}
@@ -287,7 +287,7 @@
 						player.exiting = false;
 						player.noInput = false;
 						player.gameFinishedTimeout=undefined;
-						level.loader();
+						level.stageClearedLoader();
 						if (player.power !== 0) player.pos[1] -= 16;
 						music.overworld.currentTime = 0;
 					}, 5000);
