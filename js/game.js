@@ -59,6 +59,8 @@ function init() {
     clear: new Audio('sounds/stage_clear.wav'),
     death: new Audio('sounds/mariodie.wav')
   };
+  music.overworld.loop = true;
+  music.underground.loop = true;
   sounds = {
     smallJump: new Audio('sounds/jump-small.wav'),
     bigJump: new Audio('sounds/jump-super.wav'),
