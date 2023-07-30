@@ -3,26 +3,24 @@
 .controls {
     display:flex;
     justify-content:space-between;
-    
-    .dpad {
-    position:relative;
-    display:inline-block;
-    
-    .a-b {
-    position:relative;
-    display:inline-block;
-    }
-}
+    gap: 4px;
+    margin-top: 4px;
 
-.fa-caret-right:before {
-    content: "▶";
-}
-.fa-caret-up:before {
-    content: "▲";
-}
-.fa-caret-left:before {
-    content: "◀";
-}
-.fa-caret-down:before {
-    content: "▼";
+    #left,
+    #right,
+    #up,
+    #down,
+    #run,
+    #jump {
+        font-family: monospace;
+        font-size: 2em;
+        line-height: 2em;
+        background-color: gray;
+        flex-grow: 1;
+        text-align: center;
+        border: 4px darkgrey solid;
+        display:inline-block;
+        text-transform: uppercase;
+    }
+    
 }
