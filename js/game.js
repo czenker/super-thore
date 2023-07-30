@@ -16,21 +16,23 @@ var updateables = [];
 var fireballs = [];
 var player = new Mario.Player([0,0]);
 
-//we might have to get the size and calculate the scaling
-//but this method should let us make it however big.
-//Cool!
-//TODO: Automatically scale the game to work and look good on widescreen.
-//TODO: fiddling with scaled sprites looks BETTER, but not perfect. Hmm.
-canvas.width = 762;
-canvas.height = 720;
-ctx.scale(3,3);
-document.getElementById("game").appendChild(canvas);
-
 //viewport
 var vX = 0,
     vY = 0,
     vWidth = 256,
     vHeight = 240;
+
+  //we might have to get the size and calculate the scaling
+  //but this method should let us make it however big.
+  //Cool!
+  //TODO: Automatically scale the game to work and look good on widescreen.
+  //TODO: fiddling with scaled sprites looks BETTER, but not perfect. Hmm.
+  const game_container = document.getElementById("game");
+  let scale = 6; // render at larger scale to allow crispy pixel art 
+  canvas.width = vWidth*scale;
+  canvas.height = vHeight*scale;
+  ctx.scale(scale, scale);
+  game_container.appendChild(canvas);
 
 //load our images
 resources.load([
