@@ -103,12 +103,7 @@ canvas {
 }
 
 body {
-  overflow: hidden;
-  height: 100%;
-}
-
-html {
-  overflow: hidden;
+  overflow: auto;
   height: 100%;
 }
 
