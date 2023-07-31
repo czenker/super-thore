@@ -66,10 +66,8 @@ function initGame() {
     // @see https://stackoverflow.com/a/57547943
 
     let audio = new Audio();
-    console.log(src + " started");
     const listener = () => {
       // the mock audio has stopped playing. Now load the real sound file
-      console.log(src + " ended");
       audio.src = src;
       audio.autoplay = false;
       audio.loop = loop;
