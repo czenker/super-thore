@@ -319,7 +319,7 @@ const segments=[
         lastHeight = randomInt(Math.max(3, lastHeight-3), 12);
         const hasCoins = Math.random() < 0.25;
         for(let i=0; i<w; i++) {
-          level.putBrick(dx+i, lastHeight);
+          level.putSolidBrick(dx+i, lastHeight);
           if (hasCoins) {
             level.putCoin(dx+i, lastHeight-1);
           }
@@ -383,5 +383,56 @@ const segments=[
         }
       }
     }]
+  },
+  function() { // jumping left/right
+    const gapWidth = randomInt(10,12);
+    const rightHeight = randomInt(9,10);
+    const leftHeight = randomInt(6,7);
+    const hasGoomba = randomInt(0,2);
+    const hasLeftCoin = randomInt(0,2);
+    const hasRightCoin = randomInt(0,2);
+    const width = gapWidth+1;
+
+    return [width, (level, x) => {
+      level.putFloor(x, x+1);
+      level.putSolidBrick(x, leftHeight);
+      if (hasLeftCoin > 0) {
+        level.putCoin(x+1, leftHeight-3);
+        if (hasLeftCoin > 1) {
+          level.putCoin(x+2, leftHeight-4);
+        }
+      }
+      level.putSolidBrick(x+3, rightHeight);
+      if (hasRightCoin > 0) {
+        level.putCoin(x+2, rightHeight-3);
+        if (hasRightCoin > 1) {
+          level.putCoin(x+1, rightHeight-4);
+        }
+      }
+      for(let dx=3;dx<gapWidth;dx++) {
+        level.putSolidBrick(x+dx, 3);
+      }
+      level.putFloor(x+gapWidth, x+gapWidth+1);
+      if (hasGoomba > 0) {
+        const goombaX = randomInt(5, gapWidth-1);
+        level.putGoomba(x+goombaX, 2);
+        if (hasGoomba > 1) {
+          level.putGoomba(x+goombaX+1, 2);
+        }
+      }
+      // add a cloud
+      
+      const cloudSize = randomInt(0,2);
+      if (cloudSize==0) {
+        // big
+        level.putThreeCloud(randomInt(x+3, x+gapWidth-3),randomInt(6,9));
+      } else if(cloudSize == 1) {
+        // medium
+        level.putTwoCloud(randomInt(x+3, x+gapWidth-3),randomInt(6,9));
+      } else {
+        // small
+        level.putCloud(randomInt(x+3, x+gapWidth-3),randomInt(6,9));
+      }
+    }];
   },
 ];

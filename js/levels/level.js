@@ -138,6 +138,16 @@
     });
   };
 
+  Level.prototype.putSolidBrick = function(x,y) {
+    this.blocks[y][x] = new Mario.Block({
+      pos: [x*16, y*16],
+      sprite: this.brickSprite,
+      bounceSprite: this.brickBounceSprite,
+      usedSprite: this.ublockSprite,
+      breakable: false
+    });
+  };
+
   Level.prototype.putBigHill = function(x, y) {
     var px = x*16, py = y*16;
     this.scenery[y][x] = new Mario.Prop([px, py], this.hillSprites[0]);
