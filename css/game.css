@@ -47,7 +47,7 @@ canvas {
   display: block;
   max-width: 100%;
   margin: 0 auto;
-  background-color: blue;
+  background-color: #7974FF;
   image-rendering: optimizeSpeed;
   image-rendering: crisp-edges;
   image-rendering: -moz-crisp-edges;
@@ -105,15 +105,6 @@ canvas {
 body {
   overflow: auto;
   height: 100%;
-}
-
-.info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  overflow: hidden;
-  text-align: right;
 }
 
 .about {
