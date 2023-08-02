@@ -54,6 +54,7 @@
     this.enemies = [];
     this.items = [];
     this.pipes = [];
+    this.overlays = [];
 
     for (var i = 0; i < 15; i++) {
       this.statics[i] = [];
@@ -62,6 +63,10 @@
     }
 
   };
+
+  Level.prototype.displayMission = function(text) {
+    this.overlays.push(new Mario.MissionOverlay(text));
+  }
 
   Level.prototype.putFloor = function(start, end) {
     for (var i = start; i < end; i++) {

@@ -1,7 +1,7 @@
 let wasGameInit = false;
 
 //create the canvas
-var canvas = document.createElement("canvas");
+var canvas = document.createElement("canvas", {alpha: false});
 var ctx = canvas.getContext('2d');
 var updateables = [];
 var fireballs = [];
@@ -188,6 +188,10 @@ function initGame() {
       ent.update(dt, vX);
     });
 
+    level.overlays.forEach (function(ent) {
+      ent.update(dt, vX);
+    })
+
     fireballs.forEach(function(fireball) {
       fireball.update(dt);
     });
@@ -239,6 +243,10 @@ function initGame() {
 
     level.enemies.forEach (function(enemy) {
       renderEntity(enemy);
+    });
+
+    level.overlays.forEach (function(overlay) {
+      renderEntity(overlay);
     });
 
 

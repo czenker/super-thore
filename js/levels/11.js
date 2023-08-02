@@ -144,6 +144,8 @@ var oneone = Mario.oneone = function() {
     level.putThreeBush(bush, 12);
   });
 
+  level.displayMission("Help Super Thore get to church in time for his morning sermon!");
+
   //interactable terrain
   level.putQBlock(16, 9, new Mario.Bcoin([256, 144]));
   level.putBrick(20, 9, null);
