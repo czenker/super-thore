@@ -35,24 +35,20 @@
 
   function createImage(text)  {
     const maxTextWidth = 200;
-    const paddingTop = 1;
+    const paddingTop = 2;
     const paddingHorizontal = 4;
-    const paddingBottom = 4;
+    const paddingBottom = 2;
     const borderWidth = 2;
-    const font = "12px MunroRegular";
 
-    let canvas = document.createElement("canvas");
-    canvas.width = maxTextWidth + 2 * paddingHorizontal + 2*borderWidth;
-    canvas.height = 256; // just reserve enough space
-    canvas.style["image-rendering"] = "pixelated";
-    canvas.style["font-smooth"] = "never";
-    let ctx = canvas.getContext("2d");
-    ctx.font = font;
-
-    const [lines, textWidth, textHeight, lineHeight] = multilineText(ctx, text, maxTextWidth);
+    const [lines, textWidth, textHeight, lineHeight] = Mario.MunroFont.textToMultilineGlyphs(text, maxTextWidth);
 
     let boundingWidth = textWidth + 2*paddingHorizontal + 2*borderWidth;
     let boundingHeight = textHeight + paddingTop + paddingBottom + 2*borderWidth;
+
+    let canvas = document.createElement("canvas");
+    canvas.width = boundingWidth;
+    canvas.height = boundingHeight;
+    let ctx = canvas.getContext("2d");
 
     // draw border in a pixelated way
     // we overlay rects to get this nice blocky look
@@ -71,15 +67,14 @@
     // draw the bounding box
     // ctx.fillRect(0, 0, textMeasure.width + 2*paddingHorizontal + 2*borderWidth, fontHeight + paddingTop + paddingBottom + 2*borderWidth);
     
-    ctx.imageSmoothingEnabled= false;
-    ctx.fillStyle = "#104c00"; // textColor
-    for(let idx=0; idx< lines.length; idx++) {
-      const line = lines[idx];
-      const dx = paddingHorizontal + borderWidth;
-      const dy = paddingTop + borderWidth + (idx+1) * lineHeight;
-      ctx.font = font;
-      // @TODO: disabling font-smoothing seems impossible at the moment
-      ctx.fillText(line, dx, dy);
+    let y = borderWidth + paddingTop;
+    for (const line of lines) {
+      let x = borderWidth + paddingHorizontal;
+      for (const glyph of line) {
+        glyph.render(ctx, x, y);
+        x += glyph.width;
+      }
+      y += lineHeight;
     }
     
     return canvas;

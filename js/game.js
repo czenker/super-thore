@@ -56,6 +56,7 @@ function initGame() {
     'sprites/castle.png',
     'sprites/items.png',
     'sprites/enemyr.png',
+    'sprites/munro-font.png',
   ]);
 
   resources.onReady(init);
