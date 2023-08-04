@@ -341,19 +341,23 @@
 		if (this.power === 0) {
 			this.sprite.pos[0] = 80;
 			var newy = this.sprite.pos[1] - 32;
-			this.powerSprites = [[80, newy+32], [80, newy+32], [320, newy], [80, newy], [128, newy]];
+			this.powerSprites = [[80, newy+32], [80, newy+32], [320, newy], [80, newy], [320, newy]];
 			this.powerSizes = [[16,16],[16,16],[16,32],[16,32],[16,32]];
 			this.shift = [0,16,-16,0,-16];
 			this.power = 1;
+			this.sprite.frames = [0];
 			this.hitbox = [0,0,16,32];
 		} else if (this.power == 1) {
 			var curx = this.sprite.pos[0];
-			this.powerSprites = [[curx, 96], [curx, level.invincibility[0]],
-				[curx, level.invincibility[1]], [curx, level.invincibility[2]],
-				[curx, 96]];
+			//this.powerSprites = [[curx, 96], [curx, level.invincibility[0]],
+			//	[curx, level.invincibility[1]], [curx, level.invincibility[2]],
+			//	[curx, 96]];
+			// EDIT: we want custom animations for transformation into Fire Mario
+			this.powerSprites = [[curx, 96], [curx, 288], [curx, 336], [curx, 384], [curx, 96]];
 			this.powerSizes[[16,32],[16,32],[16,32],[16,32],[16,32]];
 			this.shift = [0,0,0,0,0];
 			this.power = 2;
+			this.sprite.frames = [0];
 		} else {
 			this.powering = [];
 			delete level.items[idx];
@@ -369,10 +373,12 @@
 			this.powering = [0,5,1,5,2,5,1,5,2,5,1,5,2,5,1,5,2,5,1,5,2,5,3];
 			this.shift = [0,16,-16,16];
 			this.sprite.pos = [160, 0];
-			this.powerSprites = [[160,0], [240, 32], [240, 0], [160, 32]];
+			// EDIT: add a special sprite when shrinking
+			this.powerSprites = [[160,0], [176, 32], [256, 0], [160, 32]];
 			this.powerSizes = [[16, 32], [16,16], [16,32], [16,16]];
 			this.invincibility = 120;
 			this.power = 0;
+			this.sprite.frames = [0];
 			this.hitbox = [0,0,16,16];
 		}
 	};
