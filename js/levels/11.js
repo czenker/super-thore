@@ -93,7 +93,7 @@ var oneone = Mario.oneone = function() {
       new Mario.Sprite('sprites/items.png', [128, 32], [16,16], 0)
     ]
  });
-  ground = [[0,69],[71,86],[89,153],[155,212]];
+  ground = [[0,69],[71,86],[89,153],[155,215]];
   player.pos[0] = level.playerPos[0];
   player.pos[1] = level.playerPos[1];
   vX = 0;
