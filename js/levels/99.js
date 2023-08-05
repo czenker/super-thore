@@ -3,8 +3,8 @@ Mario.freeplay = function() {
   const exit = 204;
   level = new Mario.LevelOverworld({
     playerPos: [56,192],
-    stageClearedLoader: Mario.onetwo,
-    stageFailedLoader: Mario.onefive,
+    stageClearedLoader: Mario.freeplay,
+    stageFailedLoader: Mario.freeplay,
     exit: exit,
   });
   player.pos[0] = level.playerPos[0];
