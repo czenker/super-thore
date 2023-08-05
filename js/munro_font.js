@@ -9,19 +9,11 @@
     this.height = height;
   }
 
-  MunroFont.prototype.render = function(ctx, posx, posy) {
-    console.log("Hello");
-    ctx.imageSmoothingEnabled = false;
-    // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-    ctx.drawImage(resources.get(this.img), this.x, 0, this.width, this.height, posx, posy, this.width, this.height);
-  }
-
   const letterImage = 'sprites/munro-font.png';
   const fontHeight = 10;
   const lineHeight = fontHeight+2;
 
   MunroFont.prototype.render = function(ctx, posx, posy) {
-    console.log("Hello");
     ctx.imageSmoothingEnabled = false;
     // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
     ctx.drawImage(resources.get(this.img), this.x, 0, this.width, this.height, posx, posy + Math.floor((lineHeight - fontHeight)/2), this.width, this.height);

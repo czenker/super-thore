@@ -2,37 +2,6 @@
   if (typeof Mario === 'undefined')
   window.Mario = {};
 
-
-  function multilineText(ctx, text, maxWidth) {
-    // helper to autobreak long text on a canvas into multiple lines
-    let effectiveWidth = 0;
-    let effectiveHeight = 0;
-    let lineHeight = 0;
-    let lines = [];
-    let words = text.split(" ");
-    words.push(""); // delimits the end of the string \0
-
-    let currentLine = words.shift();
-    let currentLineWidth = 0;
-    words.forEach(word => {
-      let potentialLine = currentLine + " " + word;
-      let meassures = ctx.measureText(potentialLine);
-      if (word === "" || (meassures.width > maxWidth && currentLine !== "")) {
-        // word does not fit the line
-        effectiveWidth = Math.max(effectiveWidth, currentLineWidth);
-        lineHeight = Math.max(lineHeight, meassures.actualBoundingBoxAscent + meassures.fontBoundingBoxDescent);
-        effectiveHeight += lineHeight;
-        lines.push(currentLine);
-        currentLine = word;
-      } else {
-        currentLine = potentialLine;
-        currentLineWidth = meassures.width;
-      }
-    });
-
-    return [lines, effectiveWidth, effectiveHeight, lineHeight];
-  }
-
   function createImage(text)  {
     const maxTextWidth = 200;
     const paddingTop = 2;
