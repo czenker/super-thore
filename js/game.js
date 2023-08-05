@@ -246,10 +246,6 @@ function initGame() {
       renderEntity(enemy);
     });
 
-    level.overlays.forEach (function(overlay) {
-      renderEntity(overlay);
-    });
-
 
 
     fireballs.forEach(function(fireball) {
@@ -268,6 +264,10 @@ function initGame() {
         }
       }
     }
+
+    level.overlays.forEach (function(overlay) {
+      renderEntity(overlay);
+    });
 
     //then the player
     if (player.invincibility % 2 === 0) {
