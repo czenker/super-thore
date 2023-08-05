@@ -5,7 +5,6 @@
   }
 
   window.Mario.randomizer = function(level, options) {
-    console.log(level, options);
     options = {...defaultOptions, options};
 
     for(let i=0; i< options.saveZoneAtStart; i++) {
