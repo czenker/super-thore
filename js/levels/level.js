@@ -48,6 +48,7 @@
 
     this.invincibility = options.invincibility;
     this.start = options.start;
+    this.tintColor = options.tintColor;
     this.isStarted = false;
     this.statics = [];
     this.scenery = [];

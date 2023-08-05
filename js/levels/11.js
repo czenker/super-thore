@@ -2,7 +2,7 @@ var oneone = Mario.oneone = function() {
   /* the original first level of Super Mario Bros */
   level = new Mario.LevelOverworld({
     playerPos: [56,192],
-    stageClearedLoader: Mario.randomizer,
+    stageClearedLoader: Mario.onetwo,
     stageFailedLoader: Mario.oneone,
     exit: 204
   });
@@ -57,7 +57,7 @@ var oneone = Mario.oneone = function() {
     level.putThreeBush(bush, 12);
   });
 
-  level.displayMission("Help Super Thore get to church in time for his morning sermon!");
+  level.displayMission("Hilf Super Thore in die Church, bevor seine Predigt anfängt.");
 
   //interactable terrain
   level.putQBlock(16, 9, new Mario.Bcoin([256, 144]));

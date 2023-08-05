@@ -57,6 +57,7 @@ function initGame() {
     'sprites/items.png',
     'sprites/enemyr.png',
     'sprites/munro-font.png',
+    'sprites/buddies.png',
   ]);
 
   resources.onReady(init);
@@ -278,6 +279,12 @@ function initGame() {
     level.pipes.forEach (function(pipe) {
       renderEntity(pipe);
     });
+
+    if (level.tintColor) {
+      // this is a cheap way to color a level
+      ctx.fillStyle = level.tintColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
   }
 
   function renderEntity(entity) {

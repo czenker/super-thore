@@ -103,6 +103,14 @@
     "\\": new MunroFont(letterImage, 364, 368, fontHeight),
     "|": new MunroFont(letterImage, 368, 370, fontHeight),
     " ": new MunroFont(letterImage, 370, 374, fontHeight),
+    "\x07": new MunroFont(letterImage, 374, 374, fontHeight), // delay next character print
+    "ä": new MunroFont(letterImage, 375, 380, fontHeight),
+    "ö": new MunroFont(letterImage, 380, 385, fontHeight),
+    "ü": new MunroFont(letterImage, 385, 390, fontHeight),
+    "ß": new MunroFont(letterImage, 390, 395, fontHeight),
+    "Ä": new MunroFont(letterImage, 395, 400, fontHeight),
+    "Ö": new MunroFont(letterImage, 400, 405, fontHeight),
+    "Ü": new MunroFont(letterImage, 405, 410, fontHeight),
   }
 
   const wordToGlyphs = function(word) {
@@ -121,7 +129,7 @@
     words.push(""); // delimits the end of the string \0
 
     let currentGlyphs = wordToGlyphs(words.shift());
-    let currentLineWidth = 0;
+    let currentLineWidth = currentGlyphs.reduce((sum, glpyh) => { return sum + glpyh.width }, 0);
     words.forEach(word => {
       let potentialGlyphs = [...currentGlyphs,...wordToGlyphs(" "+word)]; // the line of glyphs that we need to check if it fits
       const potentialWidth = potentialGlyphs.reduce((sum, glpyh) => { return sum + glpyh.width }, 0);
