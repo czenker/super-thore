@@ -35,25 +35,21 @@
 
     // draw the bounding box
     // ctx.fillRect(0, 0, textMeasure.width + 2*paddingHorizontal + 2*borderWidth, fontHeight + paddingTop + paddingBottom + 2*borderWidth);
-    
-    let y = borderWidth + paddingTop;
-    for (const line of lines) {
-      let x = borderWidth + paddingHorizontal;
-      for (const glyph of line) {
-        glyph.render(ctx, x, y);
-        x += glyph.width;
-      }
-      y += lineHeight;
-    }
-    
-    return canvas;
+    this.lines = lines;
+    this.startX = borderWidth + paddingHorizontal;
+    this.nextLetterX = this.startX;
+    this.nextLetterY = borderWidth + paddingTop;
+    this.lineHeight = lineHeight;
+    this.image_canvas = canvas;
+    this.image_ctx = ctx;
   }
 
   var MissionOverlay = Mario.MissionOverlay = function(text) {
     this.text = text;
     this.visibility = 1; // fadout when mario starts moving
     // draw the screen once in a seperate canvas to be more performant
-    this.image_canvas = createImage(text);
+    createImage.call(this, text);
+    this.drawLetterCycle = 0;
   };
 
   MissionOverlay.prototype.render = function(ctx, vX, vY) {
@@ -68,6 +64,21 @@
   };
 
   MissionOverlay.prototype.update = function(dt, vX) {
+    if (this.lines.length > 0) {
+      if (this.drawLetterCycle % 2 == 0) { // how fast text is printed
+        const nextGlyph = this.lines[0].shift();
+        nextGlyph.render(this.image_ctx, this.nextLetterX, this.nextLetterY);
+        if (this.lines[0].length < 1) {
+          // if: no more glyphs in this line
+          this.lines.shift(); // delete current line
+          this.nextLetterX = this.startX;
+          this.nextLetterY += this.lineHeight;
+        } else {
+          this.nextLetterX += nextGlyph.width;
+        }
+      }
+      this.drawLetterCycle += 1;
+    }
     if (vX >= 32 && this.visibility > 0) {
       this.visibility -= dt;
     }
