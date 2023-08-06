@@ -71,6 +71,7 @@ Mario.onefive = function() {
 
   level.displayMission("Der Tag ist geschafft! Super Thore hat alle Predigten gehalten. Jetzt schnell nach Hause.");
   Mario.Buddies.placeSpouse(level, exit+1, 11);
+  Mario.Buddies.placeDog(level, exit+2, 12);
   
   Mario.randomizer(level, {
     exit: exit,

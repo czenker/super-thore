@@ -21,7 +21,14 @@
       // @TODO: should not be a block, but it does no harm after the level ends
       level.blocks[vY][vX] = new Mario.Block({
         pos: [(vX)*16, vY*16],
-        sprite: new Mario.Sprite('sprites/buddies.png', [80,64], [16,64], 5, [0,0,0,1,0,0,0,0,2,0,1,0,0,0,0,0,2]),
+        sprite: new Mario.Sprite('sprites/buddies.png', [80,64], [16,32], 5, [0,0,0,1,0,0,0,0,2,0,1,0,0,0,0,0,2]),
+      });
+    },
+    placeDog: function(level, vX, vY) {
+      // @TODO: should not be a block, but it does no harm after the level ends
+      level.blocks[vY][vX] = new Mario.Block({
+        pos: [(vX)*16, vY*16],
+        sprite: new Mario.Sprite('sprites/buddies.png', [80,112], [16,16], 6, [0,1, 0,2]),
       });
     },
   }
