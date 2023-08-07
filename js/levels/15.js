@@ -8,6 +8,7 @@ Mario.onefive = function() {
     stageClearedLoader: Mario.freeplay,
     stageFailedLoader: Mario.onefive,
     exit: exit,
+    timeLimit: 300,
     
     startBackdropSprites: [
       new Mario.Sprite('sprites/castle.png', [0,64], [16,16],0),

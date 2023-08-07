@@ -57,6 +57,7 @@ function initGame() {
     'sprites/items.png',
     'sprites/enemyr.png',
     'sprites/munro-font.png',
+    'sprites/mario-font.png',
     'sprites/buddies.png',
   ]);
 

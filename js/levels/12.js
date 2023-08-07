@@ -6,6 +6,7 @@ var onetwo = Mario.onetwo = function() {
     stageClearedLoader: Mario.onethree,
     stageFailedLoader: Mario.onetwo,
     exit: exit,
+    timeLimit: 120,
     startBackdropSprites: [
       new Mario.Sprite('sprites/castle.png', [0,64], [16,16],0),
       new Mario.Sprite('sprites/castle.png', [16,64], [16,16],0),

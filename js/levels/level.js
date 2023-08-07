@@ -71,6 +71,9 @@
       this.blocks[i] = [];
     }
 
+    if (options.timeLimit) {
+      this.overlays.push(new Mario.TimerOverlay(options.timeLimit));
+    }
   };
 
   Level.prototype.displayMission = function(text) {

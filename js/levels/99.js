@@ -6,6 +6,7 @@ Mario.freeplay = function() {
     stageClearedLoader: Mario.freeplay,
     stageFailedLoader: Mario.freeplay,
     exit: exit,
+    timeLimit: 300,
   });
   player.pos[0] = level.playerPos[0];
   player.pos[1] = level.playerPos[1];
