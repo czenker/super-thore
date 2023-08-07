@@ -88,6 +88,9 @@
     koopaSprite: function() {
       return new Mario.Sprite('sprites/enemy.png', [96,0], [16,32], 2, [0,1]);
     },
+    piranhaSprite: function() {
+      return new Mario.Sprite('sprites/enemy.png', [192, 0], [16,32], 6, [0,1]);
+    },
     flagPoleSprites: [
       new Mario.Sprite('sprites/tiles.png', [256, 128], [16,16], 0),
       new Mario.Sprite('sprites/tiles.png', [256, 144], [16,16], 0),

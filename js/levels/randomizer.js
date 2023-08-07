@@ -101,7 +101,7 @@
       const height = randomInt(2,4);
       const width = 3;
       return [width, (level, x) => {
-        level.putPipe(x, 13, height);
+        level.putPipe(x, 13, height, Math.random() < 0.5);
         level.putFloor(x, x+width);
       }]
     },

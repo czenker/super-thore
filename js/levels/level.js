@@ -23,6 +23,7 @@
     this.bcoinSprite = options.bcoinSprite;
     this.goombaSprite = options.goombaSprite;
     this.koopaSprite = options.koopaSprite;
+    this.piranhaSprite = options.piranhaSprite;
 
     //prop pipe sprites, to be phased out
     this.pipeLEndSprite = options.pipeLEndSprite;
@@ -91,6 +92,10 @@
     this.enemies.push(new Mario.Koopa([16*x, 16*y], this.koopaSprite(), false));
   };
 
+  Level.prototype.putPiranha = function(x, y) {
+    this.enemies.push(new Mario.Piranha([16*x, 16*y], this.piranhaSprite() ));
+  };
+
   Level.prototype.putWall = function(x, y, height) {
     //y is the bottom of the wall in this case.
     for (var i = y-height; i < y; i++) {
@@ -98,7 +103,7 @@
     }
   };
 
-  Level.prototype.putPipe = function(x, y, height) {
+  Level.prototype.putPipe = function(x, y, height, withPiranha) {
     for (var i = y - height; i < y; i++) {
       if (i === y - height) {
         this.statics[i][x] = new Mario.Floor([16*x, 16*i], this.pipeLEndSprite);
@@ -107,6 +112,9 @@
         this.statics[i][x] = new Mario.Floor([16*x, 16*i], this.pipeLMidSprite);
         this.statics[i][x+1] = new Mario.Floor([16*x+16, 16*i], this.pipeRMidSprite);
       }
+    }
+    if (withPiranha) {
+      this.putPiranha(x, y-height-1);
     }
   };
 
