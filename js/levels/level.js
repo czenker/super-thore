@@ -266,4 +266,17 @@
       this.start();
     }
   }
+
+  Level.prototype.onStageCleared = function() {
+    // onStageCleared
+    // TODO: submit collected coins, points, etc
+    this.stageClearedLoader.call(this);
+  }
+
+  Level.prototype.onStageFailed = function() {
+    // onStageFailed
+    // TODO: restore coins, points, etc from end of last level
+    this.stageFailedLoader.call(this);
+  }
+
 })();
