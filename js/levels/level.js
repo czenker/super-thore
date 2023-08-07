@@ -249,7 +249,6 @@
   }
 
   Level.prototype.putTree = function(x, y, length) {
-    console.log(x, y, length);
     px = x*16;
     py = y*16;
 
