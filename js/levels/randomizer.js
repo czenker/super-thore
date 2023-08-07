@@ -236,8 +236,30 @@
         })
         level.putFloor(dx, dx+1);
       }]
-      
+    },
+    function() { // trees
+      const gap = 3;
+      const widths = [randomInt(3,6),randomInt(3,6),randomInt(3,6),randomInt(3,6)].slice(0, randomInt(3, 4));
+      const width = widths.reduce(function(a, b){
+        return a + b;
+      }) + widths.length * gap + 1;
 
+      return [width, (level, x) => {
+        let dx = x;
+        let lastHeight = 12;
+        widths.forEach((w) => {
+          lastHeight = randomInt(Math.max(3, lastHeight-3), 12);
+          const hasCoins = Math.random() < 0.25;
+          level.putTree(dx, lastHeight, w);
+          for(let i=0; i<w; i++) {
+            if (hasCoins) {
+              level.putCoin(dx+i, lastHeight-1);
+            }
+          }
+          dx += w+gap;
+        })
+        level.putFloor(dx, dx+1);
+      }]
     },
     function() { // mountain
       const specialId = randomInt(0,2);

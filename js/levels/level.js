@@ -29,6 +29,11 @@
     this.pipeLMidSprite = options.pipeLMidSprite;
     this.pipeRMidSprite = options.pipeRMidSprite;
 
+    this.treeLEndSprite = options.treeLEndSprite,
+    this.treeMidSprite = options.treeMidSprite,
+    this.treeREndSprite = options.treeREndSprite,
+    this.treeStumpSprite = options.treeStumpSprite,
+
     //real pipe sprites, use these.
     this.pipeUpMid = options.pipeUpMid;
     this.pipeSideMid = options.pipeSideMid;
@@ -227,6 +232,42 @@
       direction: direction,
       destination: destination
     }));
+  }
+
+  Level.prototype.putTree = function(x, y, length) {
+    console.log(x, y, length);
+    px = x*16;
+    py = y*16;
+
+    for (let i=0;i<length; i++) {
+      let sprite = this.treeMidSprite;
+      if (i === 0) {
+        sprite = this.treeLEndSprite;
+      }
+      if (i === length-1) {
+        sprite = this.treeREndSprite;
+      }
+      this.blocks[y][x+i] = new Mario.Block({
+        pos: [(x+i)*16, y*16],
+        sprite: sprite,
+        breakable: false
+      });
+    }
+    // draw stump
+    let stumpMin = x+1;
+    let stumpMax = x+length-1;
+    if (length < 3) {
+      // for small platforms: don't have overhanging green
+      stumpMin = x;
+      stumpMax = x+length;
+    }
+
+    for (let xStump=stumpMin;xStump<stumpMax;xStump++) {
+      for (var i = y+1; i < 15; i++) {
+        this.statics[i][xStump] = new Mario.Floor([16*xStump, 16*i], this.treeStumpSprite);
+      }
+    }
+
   }
 
   Level.prototype.putFlagpole = function(x) {

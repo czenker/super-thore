@@ -31,6 +31,10 @@
     bcoinSprite: function() {
       return new Mario.Sprite('sprites/items.png', [0,112],[16,16], 20,[0,1,2,3]);
     },
+    treeLEndSprite: new Mario.Sprite('sprites/tiles.png', [80, 128], [16,16], 0),
+    treeMidSprite: new Mario.Sprite('sprites/tiles.png', [96, 128], [16,16], 0),
+    treeREndSprite: new Mario.Sprite('sprites/tiles.png', [112, 128], [16,16], 0),
+    treeStumpSprite: new Mario.Sprite('sprites/tiles.png', [80, 16], [16,16], 0),
     cloudSprites:[
       new Mario.Sprite('sprites/tiles.png', [0,320],[16,32],0),
       new Mario.Sprite('sprites/tiles.png', [16,320],[16,32],0),
