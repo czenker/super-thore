@@ -7,6 +7,7 @@
     cloudSprite:  new Mario.Sprite('sprites/tiles.png', [0,320],[48,32],0),
     wallSprite: new Mario.Sprite('sprites/tiles.png', [0, 16],[16,16],0),
     brickSprite: new Mario.Sprite('sprites/tiles.png', [16, 0], [16,16], 0),
+    verticalBrickSprite: new Mario.Sprite('sprites/tiles.png',[32,0],[16,16],0),
     brickBounceSprite: new Mario.Sprite('sprites/tiles.png',[32,0],[16,16],0),
     rubbleSprite: function () {
       return new Mario.Sprite('sprites/items.png', [64,0], [8,8], 3, [0,1])

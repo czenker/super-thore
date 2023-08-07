@@ -156,7 +156,7 @@
       const width = lowWidth+2+(hasSShape?2:0);
       return [width, (level, x) => {
         for(let y=0;y<11;y++) {
-          level.putBrick(x, y);
+          level.putSolidBrick(x, y, level.verticalBrickSprite);
         }
         for (let dx=1; dx<=lowWidth; dx++) {
           level.putBrick(x+dx, 10);
@@ -178,10 +178,10 @@
           }
         }
         if (hasSShape) {
-          for(let y=sHeight;y<13;y++) {
-            level.putBrick(x+lowWidth+2, y);
+          for(let y=sHeight+1;y<13;y++) {
+            level.putSolidBrick(x+lowWidth+2, y, level.verticalBrickSprite);
           }
-          for (let dx=1; dx<=lowWidth; dx++) {
+          for (let dx=1; dx<=lowWidth+1; dx++) {
             if (dx==1 && hasMushroom) {
               level.putQBlock(x+dx+1, sHeight, new Mario.Mushroom([(x+dx+1)*16, sHeight*16]));
             } else {

@@ -12,6 +12,7 @@
     this.cloudSprite = options.cloudSprite;
     this.wallSprite = options.wallSprite;
     this.brickSprite = options.brickSprite;
+    this.verticalBrickSprite = options.verticalBrickSprite;
     this.rubbleSprite = options.rubbleSprite;
     this.brickBounceSprite = options.brickBounceSprite;
     this.ublockSprite = options.ublockSprite;
@@ -139,21 +140,23 @@
     });
   };
 
-  Level.prototype.putBrick = function(x,y,item) {
+  Level.prototype.putBrick = function(x,y,item,sprite) {
+    sprite = sprite || this.brickSprite;
     this.blocks[y][x] = new Mario.Block({
       pos: [x*16, y*16],
       item: item,
-      sprite: this.brickSprite,
+      sprite: sprite,
       bounceSprite: this.brickBounceSprite,
       usedSprite: this.ublockSprite,
       breakable: !item
     });
   };
 
-  Level.prototype.putSolidBrick = function(x,y) {
+  Level.prototype.putSolidBrick = function(x,y,sprite) {
+    sprite = sprite || this.brickSprite;
     this.blocks[y][x] = new Mario.Block({
       pos: [x*16, y*16],
-      sprite: this.brickSprite,
+      sprite: sprite,
       bounceSprite: this.brickBounceSprite,
       usedSprite: this.ublockSprite,
       breakable: false
