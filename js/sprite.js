@@ -38,8 +38,8 @@
       frame = 0;
     }
 
-    var x = this.pos[0];
-    var y = this.pos[1];
+    var x = Math.round(this.pos[0]);
+    var y = Math.round(this.pos[1]);
 
     x += frame*this.size[0];
     ctx.imageSmoothingEnabled = false;
