@@ -13,6 +13,7 @@
       return new Mario.Sprite('sprites/items.png', [64,0], [8,8], 3, [0,1])
     },
     ublockSprite: new Mario.Sprite('sprites/tiles.png', [48, 0], [16,16],0),
+    platformSprite: new Mario.Sprite('sprites/items.png', [64, 128], [16,8], 0),
     superShroomSprite: new Mario.Sprite('sprites/items.png', [0,0], [16,16], 0),
     fireFlowerSprite: new Mario.Sprite('sprites/items.png', [0,32], [16,16], 20, [0,1,2,3]),
     starSprite: new Mario.Sprite('sprites/items.png', [0,48], [16,16], 20, [0,1,2,3]),

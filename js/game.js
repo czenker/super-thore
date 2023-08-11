@@ -169,6 +169,10 @@ function initGame() {
 
   //update all the moving stuff
   function updateEntities(dt, gameTime) {
+    level.platforms.forEach (function(ent) {
+      ent.update(dt, vX);
+    });
+
     player.update(dt, vX);
     updateables.forEach (function(ent) {
       ent.update(dt, gameTime);
@@ -238,6 +242,10 @@ function initGame() {
         }
       }
     }
+
+    level.platforms.forEach((platform) => {
+      renderEntity(platform);
+    })
 
     //then items
     level.items.forEach (function (item) {

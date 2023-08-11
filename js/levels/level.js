@@ -16,6 +16,7 @@
     this.rubbleSprite = options.rubbleSprite;
     this.brickBounceSprite = options.brickBounceSprite;
     this.ublockSprite = options.ublockSprite;
+    this.platformSprite = options.platformSprite;
     this.superShroomSprite = options.superShroomSprite;
     this.fireFlowerSprite = options.fireFlowerSprite;
     this.starSprite = options.starSprite;
@@ -59,6 +60,7 @@
     this.isStarted = false;
     this.statics = [];
     this.scenery = [];
+    this.platforms = [];
     this.blocks = [];
     this.enemies = [];
     this.items = [];
@@ -311,6 +313,14 @@
         this.scenery[pos_y][pos_x] = new Mario.Prop([16*pos_x, 16*pos_y], this.startBackdropSprites[i]);
       }
     }
+  }
+
+  Level.prototype.putPlatform = function(x, y, options) {
+    options = {...options, ...{
+      pos: [x*16, y*16],
+      sprite: this.platformSprite,
+    }}
+    this.platforms.push(new Mario.Platform(options));
   }
 
   Level.prototype.start = function() {

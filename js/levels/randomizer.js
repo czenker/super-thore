@@ -365,5 +365,51 @@
         }
       }];
     },
+
+    function() { // a gap with a platform
+      const platformWidth = 3;
+      let platDistance = randomInt(4, 8);
+      const platHeight = randomInt(9,12);
+      const width = platDistance + platformWidth + 1;
+
+      return [width, (level, x) => {
+        level.putPlatform(x, platHeight, {
+          travelDistance: 16*platDistance,
+        })
+        const end = x + width - 1;
+        level.putFloor(end, end+1);
+      }]
+    },
+
+    // @TODO: to complicated for smartphones. Enable later when there are difficulty settings
+    // function() { // jump from one platform to another
+    //   const platformWidth = 3;
+    //   // distances must not share common divisors or we might create a situation where a transition is not possible
+    //   let plat1Distance = [3,5,7][randomInt(0,2)];
+    //   let plat2Distance = [2,4,8][randomInt(0,2)];
+    //   if (Math.random() < 0.5) {
+    //     plat1Distance, plat2Distance = plat2Distance, plat1Distance;
+    //   }
+    //   const plat1Height = randomInt(9,12);
+    //   const plat2Height = randomInt(plat1Height-3, 12);
+    //   let gap
+    //   if (plat1Height == plat2Height) {
+    //     gap = randomInt(platformWidth+0,platformWidth+2);
+    //   } else {
+    //     gap = randomInt(platformWidth-2,platformWidth+1);
+    //   }
+    //   const width = plat1Distance + plat2Distance + gap + platformWidth + 1;
+
+    //   return [width, (level, x) => {
+    //     level.putPlatform(x, plat1Height, {
+    //       travelDistance: 16*plat1Distance,
+    //     })
+    //     level.putPlatform(x+plat1Distance+gap, plat2Height, {
+    //       travelDistance: 16*plat2Distance,
+    //     })
+    //     const end = x+width-1;
+    //     level.putFloor(end, end+1);
+    //   }]
+    // },
   ];
 })();

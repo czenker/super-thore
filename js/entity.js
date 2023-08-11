@@ -20,6 +20,7 @@
 		//the wall will always be a 16x16 block with hitbox = [0,0,16,16].
 		if (this.pos[0] > wall.pos[0]) {
 			//from the right
+			// @TODO: Why do we move the player when bumping?
 			this.pos[0] = wall.pos[0] + wall.hitbox[2] - this.hitbox[0];
 			this.vel[0] = Math.max(0, this.vel[0]);
 			this.acc[0] = Math.max(0, this.acc[0]);

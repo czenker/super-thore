@@ -319,6 +319,10 @@
 		var baseX = Math.floor(this.pos[0] / 16);
 		var baseY = Math.floor(this.pos[1] / 16);
 
+		level.platforms.forEach((platform) => {
+			platform.isCollideWith(this);
+		});
+
 		for (var i = 0; i < h; i++) {
 			if (baseY + i < 0 || baseY + i >= 15) continue;
 			for (var j = 0; j < w; j++) {
