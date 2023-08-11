@@ -301,7 +301,7 @@
 		this.pos[0] += this.vel[0];
 		this.pos[1] += this.vel[1];
 
-    this.setAnimation();
+    	this.setAnimation();
 		this.sprite.update(dt);
 	};
 
