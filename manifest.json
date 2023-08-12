@@ -6,11 +6,13 @@
       {
         "src": "./favicon.png",
         "type": "image/png",
+        "purpose": "any",
         "sizes": "128x128"
       },
       {
         "src": "./favicon512.png",
         "type": "image/png",
+        "purpose": "any",
         "sizes": "512x512"
       },
       {
@@ -22,6 +24,8 @@
     ],
     "start_url": "./index.html",
     "display": "minimal-ui",
-    "background-color": "#7974FF",
-    "categories": "games"
+    "categories": "games",
+    "theme_color": "#7974ff",
+    "background_color": "#000000",
+    "dir": "ltr"
   }
