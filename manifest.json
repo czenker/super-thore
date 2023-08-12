@@ -1,5 +1,7 @@
 {
-    "name": "Super Thore",
+    "name": "Super Thore – The Game",
+    "short_name": "Super Thore",
+    "description": "Help Super Thore defeat all the Goombas!",
     "icons": [
       {
         "src": "./favicon.png",
@@ -10,8 +12,16 @@
         "src": "./favicon512.png",
         "type": "image/png",
         "sizes": "512x512"
+      },
+      {
+        "src": "./favicon512-masked.png",
+        "type": "image/png",
+        "purpose": "masked",
+        "sizes": "512x512"
       }
     ],
     "start_url": "./index.html",
-    "display": "fullscreen"
+    "display": "minimal-ui",
+    "background-color": "#7974FF",
+    "categories": "games"
   }

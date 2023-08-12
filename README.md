@@ -1,4 +1,34 @@
 
+# Sunday
+
+* Help Super Thore get to church on time for his morning sermon!
+* Super Thore wants to meet friends for dinner after church. Be quick, because his sermon took longer than expected... again...
+* Help Super Thore get to the recently opened campus for his afternoon sermon.
+* Super Thore needs to get back to the main campus in time for the evening sermon.
+* A busy day done well. Let's get Super Thore back home to his wife.
+
+# Weekdays
+
+* find the dog
+* do the groceries
+* go to the dentist
+* home group
+* planning meetings
+* meet friends for bbq
+* gym
+* meet your mentor
+
+
+# difficulty + 1 per day
+
+https://themushroomkingdom.net/games/smb
+player physics, acceleration, etc: https://web.archive.org/web/20140406030423/http://s276.photobucket.com/user/jdaster64/media/smb_playerphysics.png.html
+
+# TODO
+
+Fix Hitbox Sizes: https://www.speedrun.com/smb1/guides/pbl9d
+
+
 [![Mario](http://www.garrettjohnson.net/images/fulls/mariofull.png)](http://www.garrettjohnson.net/mario)
 #Mario
 [Mario.js](www.garrettjohnson.net/mario "Mario.js") is a clone of Super Mario Bros. for the Nintendo Entertainment System, implemented in Javascript.  It implements a hand-built game engine using the HTML5 Canvas.
