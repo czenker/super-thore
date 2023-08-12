@@ -68,41 +68,6 @@
       // no collision detection if hidden
       return;
     }
-    // if (this.flipping) {
-    //   return;
-    // }
-
-    // var h = this.pos[1] % 16 === 0 ? 1 : 2;
-    // var w = this.pos[0] % 16 === 0 ? 1 : 2;
-
-    // var baseX = Math.floor(this.pos[0] / 16);
-    // var baseY = Math.floor(this.pos[1] / 16);
-
-    // if (baseY + h > 15) {
-    //   delete level.enemies[this.idx];
-    //   return;
-    // }
-
-    // for (var i = 0; i < h; i++) {
-    //   for (var j = 0; j < w; j++) {
-    //     if (level.statics[baseY + i][baseX + j]) {
-    //       level.statics[baseY + i][baseX + j].isCollideWith(this);
-    //     }
-    //     if (level.blocks[baseY + i][baseX + j]) {
-    //       level.blocks[baseY + i][baseX + j].isCollideWith(this);
-    //     }
-    //   }
-    // }
-    // var that = this;
-    // level.enemies.forEach(function(enemy){
-    //   if (enemy === that) { //don't check collisions with ourselves.
-    //     return;
-    //   } else if (enemy.pos[0] - vX > 336){ //stop checking once we get to far away dudes.
-    //     return;
-    //   } else {
-    //     that.isCollideWith(enemy);
-    //   }
-    // });
     this.isCollideWith(player);
   };
 
@@ -119,9 +84,7 @@
     if (!(hpos1[0] > hpos2[0]+ent.hitbox[2] || (hpos1[0]+this.hitbox[2] < hpos2[0]))) {
       if (!(hpos1[1] > hpos2[1]+ent.hitbox[3] || (hpos1[1]+this.hitbox[3] < hpos2[1]))) {
         if (ent instanceof Mario.Player) { //if we hit the player
-          if (ent.vel[1] > 0) { //then the goomba dies
-            this.stomp();
-          } else if (ent.starTime) {
+          if (ent.starTime) {
             this.bump();
           } else { //or the player gets hit
             ent.damage();
@@ -133,11 +96,6 @@
     }
   };
 
-  
-
-  Piranha.prototype.stomp = function() {
-    // can not be stomped
-  };
   Piranha.prototype.bump = function() {
     // if hit by fireball or starman
 
