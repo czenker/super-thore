@@ -6,7 +6,7 @@
     Mario.Entity.call(this, {
       pos: pos,
       sprite: sprite,
-      hitbox: [9,12,23,32]
+      hitbox: [9,8,14,24]
     });
     this.cycle = 1; // 1 -> up, -1 -> down, 2 -> stop on top, -2 -> hide
     this.yOffset = -8; // start hidden

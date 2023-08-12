@@ -9,7 +9,7 @@
     Mario.Entity.call(this, {
       pos: pos,
       sprite: sprite,
-      hitbox: [0,0,16,16]
+      hitbox: [3,5,11,11]
     });
     this.vel[0] = -0.5;
     this.idx = level.enemies.length;

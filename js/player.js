@@ -2,6 +2,10 @@
 	if (typeof Mario === 'undefined')
 		window.Mario = {};
 
+	const hitboxSmall = [3,3,11,13];
+	const hitboxBig = [2,7,13,25];
+	const hitboxCrouched = [2,19,13,13];
+
 	var Player = Mario.Player = function(pos) {
 		//I know, I know, there are a lot of variables tracking Mario's state.
 		//Maybe these can be consolidated some way? We'll see once they're all in.
@@ -22,7 +26,7 @@
 		Mario.Entity.call(this, {
 			pos: pos,
 			sprite: new Mario.Sprite('sprites/player.png', [80,32],[16,16],0),
-			hitbox: [0,0,16,16]
+			hitbox: hitboxSmall
 		});
 	};
 
@@ -94,11 +98,13 @@
 			return;
 		}
 
+		this.hitbox = hitboxCrouched;
 		if (this.standing) this.crouching = true;
 	}
 
 	Player.prototype.noCrouch = function() {
 		this.crouching = false;
+		this.hitbox = this.power === 0 ? hitboxSmall : hitboxBig;
 	}
 
 	Player.prototype.jump = function() {
@@ -350,7 +356,7 @@
 			this.shift = [0,16,-16,0,-16];
 			this.power = 1;
 			this.sprite.frames = [0];
-			this.hitbox = [0,0,16,32];
+			this.hitbox = hitboxBig;
 		} else if (this.power == 1) {
 			var curx = this.sprite.pos[0];
 			//this.powerSprites = [[curx, 96], [curx, level.invincibility[0]],
@@ -383,7 +389,7 @@
 			this.invincibility = 120;
 			this.power = 0;
 			this.sprite.frames = [0];
-			this.hitbox = [0,0,16,16];
+			this.hitbox = hitboxSmall;
 		}
 	};
 

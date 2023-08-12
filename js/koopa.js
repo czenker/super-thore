@@ -2,6 +2,9 @@
   if (typeof Mario === 'undefined')
   window.Mario = {};
 
+  const hitboxNormal = [2,16,13,16];
+  const hitboxStomped = [2,0,12,16];
+
   var Koopa = Mario.Koopa = function(pos, sprite, para) {
     this.dying = false;
     this.shell = false;
@@ -14,7 +17,7 @@
     Mario.Entity.call(this, {
       pos: pos,
       sprite: sprite,
-      hitbox: [2,8,12,24]
+      hitbox: hitboxNormal
     });
     this.vel[0] = -0.5;
     this.idx = level.enemies.length;
@@ -61,7 +64,7 @@
         }
         if (this.shell == 0) {
           this.sprite = level.koopaSprite();
-          this.hitbox = [2,8,12,24]
+          this.hitbox = hitboxNormal;
           if (this.left) {
             this.sprite.img = 'sprites/enemyr.png';
             this.vel[0] = 0.5;
@@ -188,7 +191,7 @@
       this.sprite.pos[0] += 64;
       this.sprite.pos[1] += 16;
       this.sprite.size = [16,16];
-      this.hitbox = [2,0,12,16];
+      this.hitbox = hitboxStomped;
       this.sprite.speed = 0;
       this.frames = [0,1];
       this.vel = [0,0];
@@ -203,7 +206,7 @@
     this.flipping = true;
     this.sprite.pos = [160, 0];
     this.sprite.size = [16,16];
-    this.hitbox = [2, 0, 12, 16];
+    this.hitbox = hitboxStomped;
     this.sprite.speed = 0;
     this.vel[0] = 0;
     this.vel[1] = -2.5;
